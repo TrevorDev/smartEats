@@ -15,9 +15,5 @@ $(function(){
     window.location="/order?items="+encodeURIComponent(testIds)
     return false
   })
-
   
-
-  console.log(getURLParameter("items").split(","))
-
 });
