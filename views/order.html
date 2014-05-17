@@ -9,6 +9,19 @@
 					<hr style="height:10px;background-color: #EEE;border:none;">
 					<hr style="height:10px;background-color: #EEE;border:none;">
 					<h2 class="white">Total: $0.00</h2>
+					<form id="donate" action="https://bitpay.com/checkout" method="post" onsubmit="return bp.validateMobileCheckoutForm($('#donate'));">
+					  <input name="action" type="hidden" value="checkout">
+					  <input name="orderID" type="hidden" placeholder="Email address (optional)" >
+					  <input name="price" type="hidden" placeholder="Amount" value="10.00" />
+					  <!--<select name="currency" value="" >
+					    <option value="USD" selected="selected">USD</option>
+					    <option value="BTC">BTC</option>
+					    <option value="EUR">EUR</option>
+					    <option value="GBP">GBP</option>
+					  </select>-->
+					  <input name="data" type="hidden" value="SRkpL6jTOABpS9wex5zaXvDPAYVN6HG9/cMkuenTVWNxsaBFauhthwbLfsnft9ATvwkLJy5UGlmrLqFeSBvkL0oKmYz0fY/QbGeLC3xiOTAd73hcSRDabVbBd97WWhPN+QjYT30mLJBzvGPqWSTJjO9pOuw1IgBWwMdVn79ZP4NWzDfNdsZvBs4zXnwrdyYNAiKR80tJZRn3CdS37orhSU0QO7SfVYXet+8BcaxA3CwBdqEBiwaKbknIOnH2yGKhaqSzJkKcsHG4UAEeTLc9MYTg/DYBlaJmo/hutkZrz+2hdEyU5byXBkWsrqwWn+8sThJdI752abbanOLzhxEK2a0IE+8Wb7BG6XFy95Yb0OY=">
+					  <input name="submit" type="image" src="/public/custom/img/orderButton.png" border="0" >
+					</form>
 						
 				</div><!-- /col-lg-6 -->
 				
