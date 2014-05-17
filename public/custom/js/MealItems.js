@@ -13,7 +13,7 @@ function populateMealList(){
 	
 	var Rosee = new mealItem(1,"Rosee Pasta", ["pasta", "pastaSause"], "http://someurl");
 	
-	Meals.add(Rosee);
+	Meals.push(Rosee);
 	
 	return Meals;
 }
