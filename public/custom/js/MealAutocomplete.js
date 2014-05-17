@@ -15,14 +15,5 @@ $(function(){
     window.location="/order?items="+encodeURIComponent(testIds)
     return false
   })
-
-  function getURLParameter(name) {
-    var ret = decodeURIComponent((RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]);
-    return ret == "null" ? null : ret;
-  }
-
-  //console.log(getURLParameter("items").split(","))
-
-  //console.log(window.location.pathname.split('?')[1]));
-
+ 
 });

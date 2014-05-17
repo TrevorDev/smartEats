@@ -15,7 +15,7 @@ function populateMealList(){
 	var Meals=[];
 	
 	
-	var Rosee = new mealItem(1,"Lime Chicken Soft Tacos", [ new"pasta", "pastaSause"], "http://someurl");
+	var Tacos = new mealItem(1,"Lime Chicken Soft Tacos", [ new ingredientItem("",), ], "");
 	
 	Meals.push(Rosee);
 	
