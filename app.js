@@ -27,6 +27,7 @@ app.use(router(app))
 
 //PAGE ROUTES
 app.get('/', defaultPageLoad('index'))
+app.get('/order', defaultPageLoad('order'))
 app.get('/public/*', serve('.'))
 
 
