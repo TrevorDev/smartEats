@@ -31,7 +31,8 @@
 		"ncp": "x.x",
 		"koa-send": "x.x",
 		"stripe": "x.x",
-		"bluebird": "x.x"
+		"bluebird": "x.x",
+		"bitpay": "x.x"
 	},
 	"testing": "mocha"
 }
