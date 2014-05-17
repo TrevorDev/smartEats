@@ -21,7 +21,7 @@ $(function(){
     return ret == "null" ? null : ret;
   }
 
-  console.log(getURLParameter("items").split(","))
+  //console.log(getURLParameter("items").split(","))
 
   //console.log(window.location.pathname.split('?')[1]));
 
