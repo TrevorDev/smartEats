@@ -19,6 +19,19 @@ function orderList($scope, $http) {
 		return $scope.meals[item].clone()
 	})
 
+	$scope.toggleIngred = function(id){
+		console.log($("#meal"+id))
+		$("#meal"+id).toggle('slide', {
+	        duration: 200,
+	        direction: 'up'
+	    });
+		return false
+	}
+
+	$scope.removeIngred = function(mealId, ingredId){
+		$scope.items[mealId].ingredients.splice(ingredId, 1)
+	}
+
 	$scope.totalPrice = function(){
 		var total = 0;
 		for(var i = 0;i<this.items.length;i++){
@@ -33,13 +46,12 @@ function orderList($scope, $http) {
 
 {% block body %}
 	<div id="headerwrap" style="padding-top:0px">
-		<div class="container" ng-controller="orderList">
+		<div class="container" ng-controller="orderList" style="font-family: 'Lato', sans-serif;">
 			<div class="row">
 				<div class="col-lg-12">
 				<!--<i class="glyphicon glyphicon-circle-arrow-left white"></i>-->
 					<h1>Order</h1>
-					<hr style="height:10px;background-color: #EEE;border:none;">
-					<div class="container" ng-repeat="meal in items" ng-cloak style="background-color: #EEE">
+					<div class="container selectorListdiv" ng-repeat="meal in items" ng-cloak style="background-color: #FFF">
 						<div class="container">
 						<row>
 							<div class="col-lg-2">
@@ -56,6 +68,8 @@ function orderList($scope, $http) {
 							</div>-->
 						</row>
 						</div>
+						<input type="button" ng-click="toggleIngred($index)" class="btn btn-warning btn-md" value="Ingredients">
+						<div id="meal[[$index]]" style="display: none;">
 						<div class="container" ng-repeat="incredient in meal.ingredients" ng-cloak>
 							<row>
 								<div class="col-lg-2">
@@ -65,14 +79,19 @@ function orderList($scope, $http) {
 									<div>[[incredient.name]]</div>
 								</div>
 								<div class="col-md-7">
-									<a href="#">Remove</a>
+									<input type="button" ng-click="removeIngred($parent.$index, $index)" class="btn btn-alert btn-sm" style='padding: 0px 8px;' value="Remove">
 								</div>
 							</row>
 							</div>
+							</div>
 					</div>
-					<hr style="height:10px;background-color: #EEE;border:none;">
 					<h2 class="white">Total: $[[totalPrice()]]</h2>
-					<form id="donate" action="https://bitpay.com/checkout" method="post" onsubmit="return bp.validateMobileCheckoutForm($('#donate'));">
+					<center>
+					<div class="container">
+					<div class="row">
+					<div class="col-md-6">
+						<h1>Pickup</h1>
+						<form id="donate" action="https://bitpay.com/checkout" method="post" onsubmit="return bp.validateMobileCheckoutForm($('#donate'));">
 					  <input name="action" type="hidden" value="checkout">
 					  <input name="orderID" type="hidden" placeholder="Email address (optional)" >
 					  <input name="price" type="hidden" placeholder="Amount" value="10.00" />
@@ -85,7 +104,28 @@ function orderList($scope, $http) {
 					  <input name="data" type="hidden" value="SRkpL6jTOABpS9wex5zaXvDPAYVN6HG9/cMkuenTVWNxsaBFauhthwbLfsnft9ATvwkLJy5UGlmrLqFeSBvkL0oKmYz0fY/QbGeLC3xiOTAd73hcSRDabVbBd97WWhPN+QjYT30mLJBzvGPqWSTJjO9pOuw1IgBWwMdVn79ZP4NWzDfNdsZvBs4zXnwrdyYNAiKR80tJZRn3CdS37orhSU0QO7SfVYXet+8BcaxA3CwBdqEBiwaKbknIOnH2yGKhaqSzJkKcsHG4UAEeTLc9MYTg/DYBlaJmo/hutkZrz+2hdEyU5byXBkWsrqwWn+8sThJdI752abbanOLzhxEK2a0IE+8Wb7BG6XFy95Yb0OY=">
 					  <input name="submit" type="image" src="/public/custom/img/orderButton.png" border="0" >
 					</form>
-						
+					<input type="button" ng-click="removeIngred($parent.$index, $index)" class="btn btn-warning btn-lg" style='font-size: 25px;' value="Credit Card">
+					</div>
+					<div class="col-md-6">
+						<h1>Delivery</h1>
+						<form id="donate" action="https://bitpay.com/checkout" method="post" onsubmit="return bp.validateMobileCheckoutForm($('#donate'));">
+					  <input name="action" type="hidden" value="checkout">
+					  <input name="orderID" type="hidden" placeholder="Email address (optional)" >
+					  <input name="price" type="hidden" placeholder="Amount" value="10.00" />
+					  <!--<select name="currency" value="" >
+					    <option value="USD" selected="selected">USD</option>
+					    <option value="BTC">BTC</option>
+					    <option value="EUR">EUR</option>
+					    <option value="GBP">GBP</option>
+					  </select>-->
+					  <input name="data" type="hidden" value="SRkpL6jTOABpS9wex5zaXvDPAYVN6HG9/cMkuenTVWNxsaBFauhthwbLfsnft9ATvwkLJy5UGlmrLqFeSBvkL0oKmYz0fY/QbGeLC3xiOTAd73hcSRDabVbBd97WWhPN+QjYT30mLJBzvGPqWSTJjO9pOuw1IgBWwMdVn79ZP4NWzDfNdsZvBs4zXnwrdyYNAiKR80tJZRn3CdS37orhSU0QO7SfVYXet+8BcaxA3CwBdqEBiwaKbknIOnH2yGKhaqSzJkKcsHG4UAEeTLc9MYTg/DYBlaJmo/hutkZrz+2hdEyU5byXBkWsrqwWn+8sThJdI752abbanOLzhxEK2a0IE+8Wb7BG6XFy95Yb0OY=">
+					  <input name="submit" type="image" src="/public/custom/img/orderButton.png" border="0" >
+					</form>
+					<input type="button" ng-click="removeIngred($parent.$index, $index)" class="btn btn-warning btn-lg" style='font-size: 25px;' value="Credit Card">
+					</div>	
+					</div>
+					</div>		
+					</center>		
 				</div><!-- /col-lg-6 -->
 				
 			</div><!-- /row -->
