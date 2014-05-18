@@ -111,17 +111,15 @@ function orderList($scope, $http) {
 						<div class="row">
 							<div class="col-md-6">
 								<h1>Pickup</h1>
-
 								<a href="[[getUrl()]]"><input name="submit" type="image" src="/public/custom/img/orderButton.png" border="0" ></a>
 								</br>
-								<input type="button" ng-click="removeIngred($parent.$index, $index)" class="btn btn-warning btn-lg" style='font-size: 25px;' value="Credit Card">
+								<button onclick="window.location.replace('https://fresh.amazon.com/Delivery?referer=PreviewOrder&slotReferer=PreviewOrder&externalOrderId=AF7-5963569-0478923')" class="btn btn-warning btn-lg" style='font-size: 25px;'>Credit Card</button>
 							</div>
 							<div class="col-md-6">
 								<h1>Delivery</h1>
-
-								<input name="submit" type="image" src="/public/custom/img/orderButton.png" border="0" >
-								<br>
-								<input type="button" ng-click="removeIngred($parent.$index, $index)" class="btn btn-warning btn-lg" style='font-size: 25px;' value="Credit Card">
+								<a href="[[getUrl()]]"><input name="submit" type="image" src="/public/custom/img/orderButton.png" border="0" ></a>
+								</br>
+								<button onclick="window.location.replace('https://fresh.amazon.com/Delivery?referer=PreviewOrder&slotReferer=PreviewOrder&externalOrderId=AF7-5963569-0478923')" class="btn btn-warning btn-lg" style='font-size: 25px;'>Credit Card</button>
 							</div>	
 						</div>
 					</div>		

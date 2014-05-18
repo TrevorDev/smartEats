@@ -4,10 +4,11 @@ $(function(){
 	//=================declare page elements========================
 	var meals = populateMealList();	
 	var userChosenMeals=[];
+	var mealsAdded=0;
 	
 	//=============prototype functions==============================
 	function RemoveMealElement(mealListItem){
-		console.log( "removed!" );
+		console.log( "removed!"+ mealListItem);
 	}
   
 	//handle adding a meal
@@ -25,11 +26,40 @@ $(function(){
 				userChosenMeals.push(i);
 				found =1;
 				
-				var mealElement = '<li class="ac_even"><img src='+ meals[i].image+'><span class="title"><strong>'+meals[i].Title+'</strong>s</span></a><input type="button"  class="xbutton"  value="x" onclick="RemoveMealElement(this.parentNode)"/></li>'
-			
+								
+				var mealElement = jQuery('<li></li>', {
+					class: 'ac_even',	
+					id: mealsAdded
+				});
+				
+				jQuery('<img/>',{
+					src:meals[i].image,
+				}).appendTo(mealElement);
+				jQuery('<span></span>',{
+					text:meals[i].Title,
+					class:'title',
+					style:'font-weight:bold'
+				}).appendTo(mealElement);
+				jQuery('<input />',{
+					value:'x',
+					class:'xbutton',
+					type: 'button'
+				}).on({
+					click:function(){
+					
+						
+						var parent = $(this).parent().hide();
+						if (userChosenMeals.length > -1) {
+							userChosenMeals.splice(parent.attr('id'),1);
+						}
+							console.log('removed'+userChosenMeals);
+						
+						}
+					}).appendTo(mealElement);
+				
 				var uListMeals = $("#SelectedMeals").append(mealElement);
 				
-				
+				mealsAdded++;
 				break;
 			}
 		}
