@@ -2,7 +2,12 @@
   color: #EEE;
 }
 
-.selectorListdiv{
+.container {
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+.selectorListdiv {
 	background: #FFF;
 	color: #000;
 	background-color: #FFF;

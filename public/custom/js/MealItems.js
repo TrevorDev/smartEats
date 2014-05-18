@@ -4,10 +4,27 @@ function MealItem(id,Title, ingredients,image){
 	this.Title = Title;
 	this.ingredients = ingredients;
 	this.image = image;
+	this.clone = function(){
+		var newIngredients = $.map(this.ingredients, function(x){
+			return x.clone()
+		})
+		return new MealItem(this.id,this.Title,newIngredients,this.image)
+	}
+	this.getPrice = function(){
+		var total = 0;
+		for(var i = 0;i<this.ingredients.length;i++){
+			total+= this.ingredients[i].price
+		}
+		return parseInt(total*100)/100
+	}
 }
 function ingredientItem(name,amount){
 	this.name = name;
 	this.amount = amount;
+	this.price = 1.99
+	this.clone = function(){
+		return new ingredientItem(this.name, this.amount)
+	}
 }
 
 
