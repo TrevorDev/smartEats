@@ -21,7 +21,10 @@ $(function(){
 				userChosenMeals.push(i);
 				found =1;
 				
-				%("#SelectedMeals").append();
+				var mealElement = '<li class="ac_even"><a href="index.html"><img src='+ meals[i].image+'><span class="title"><strong>'+meals[i].Title+'</strong>s</span></a></li>'
+			
+				var uListMeals = $("#SelectedMeals").append(mealElement);
+				
 				
 				break;
 			}
