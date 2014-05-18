@@ -51,7 +51,7 @@ function orderList($scope, $http) {
 
 	$scope.bitPayPayment = function(){
 		$.post( "/invoice?p="+$scope.totalPrice(), function( data ) {
-			window.location = data.data.url
+			window.open(data.data.url)
 		});
 	}
 
@@ -119,13 +119,13 @@ function orderList($scope, $http) {
 								<h1>Pickup</h1>
 								<a ng-click="bitPayPayment()"><input name="submit" type="image" src="/public/custom/img/orderButton.png" border="0" ></a>
 								</br>
-								<button onclick="window.location.replace('https://fresh.amazon.com/Delivery?referer=PreviewOrder&slotReferer=PreviewOrder&externalOrderId=AF7-5963569-0478923')" class="btn btn-warning btn-lg" style='font-size: 25px;'>Credit Card</button>
+								<button onclick="window.open('http://localhost:3000/complete')" class="btn btn-warning btn-lg" style='font-size: 25px;'>Credit Card</button>
 							</div>
 							<div class="col-md-6">
 								<h1>Delivery</h1>
 								<a ng-click="bitPayPayment()"><input name="submit" type="image" src="/public/custom/img/orderButton.png" border="0" ></a>
 								</br>
-								<button onclick="window.location.replace('https://fresh.amazon.com/Delivery?referer=PreviewOrder&slotReferer=PreviewOrder&externalOrderId=AF7-5963569-0478923')" class="btn btn-warning btn-lg" style='font-size: 25px;'>Credit Card</button>
+								<button onclick="window.open('https://fresh.amazon.com/Delivery?referer=PreviewOrder&slotReferer=PreviewOrder&externalOrderId=AF7-5963569-0478923')" class="btn btn-warning btn-lg" style='font-size: 25px;'>Credit Card</button>
 							</div>	
 						</div>
 					</div>		
