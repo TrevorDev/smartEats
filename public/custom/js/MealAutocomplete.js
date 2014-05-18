@@ -12,11 +12,17 @@ $(function(){
 		//get text input
 		var mealInputString = $("#s").val();
 		
+		//clear field
+		$("#s").val('');
+		
 		var found =0;
 		for(var i=0; i<meals.length;i++){
 			if(mealInputString === meals[i].Title){
 				userChosenMeals.push(i);
 				found =1;
+				
+				%("#SelectedMeals").append();
+				
 				break;
 			}
 		}
