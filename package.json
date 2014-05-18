@@ -8,6 +8,7 @@
   	},
 	"private": true,
 	"dependencies": {
+                "koa-cors": "x.x",
 		"request": "x.x",
 		"thunkify": "x.x",
 		"co": "x.x",
@@ -32,7 +33,7 @@
 		"koa-send": "x.x",
 		"stripe": "x.x",
 		"bluebird": "x.x",
-		"bitpay": "x.x"
+		"bitpay-node": "x.x"
 	},
 	"testing": "mocha"
 }
