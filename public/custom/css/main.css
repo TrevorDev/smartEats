@@ -23,3 +23,27 @@
 	margin-top: 10px;
 	margin-bottom: 20px;
 }
+
+.xbutton{
+	
+	float: right;
+	vertical-align: middle;
+	margin-top: 25px;
+    line-height:15px;
+    border: 0px solid #f5f5f5;
+    border-radius: 50%;
+    color:#f5f5f5;
+    text-align:right;
+    text-decoration:none;
+    background: #E75252;
+    box-shadow: 0 0 3px gray;
+
+	
+}
+.xbutton:hover{
+	background: #E71111;	
+}
+
+.title{
+	margin-left: 10px;
+}
