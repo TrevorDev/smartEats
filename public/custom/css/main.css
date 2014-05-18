@@ -6,3 +6,17 @@
 	padding-right: 0px;
 	padding-left: 0px;
 }
+
+.selectorList {
+	background: #FFF;
+	color: #000;
+	background-color: #FFF;
+	min-width: 100px;
+	min-height: 100px;
+}
+
+.mealselection{
+	color: #FFF;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
