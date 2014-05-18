@@ -21,7 +21,13 @@ $(function(){
 				userChosenMeals.push(i);
 				found =1;
 				
-				%("#SelectedMeals").append();
+				var mealElement = '<li class="ac_even"><a href="index.html"><img src="../public/custom/img/taco.jpg"><span class="title"><strong>Lime Chicken Soft Taco</strong>s</span></a></li>'
+				
+				
+				
+				var uListMeals = $("#SelectedMeals").append(mealElement);
+				
+				$("#SelectedMeals").append();
 				
 				break;
 			}

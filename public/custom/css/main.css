@@ -2,12 +2,14 @@
   color: #EEE;
 }
 
-.selectorList {
+.selectorListdiv{
 	background: #FFF;
 	color: #000;
 	background-color: #FFF;
 	min-width: 100px;
 	min-height: 100px;
+	margin-bottom: 30px;
+	border-radius: 10px
 }
 
 .mealselection{
