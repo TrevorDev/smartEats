@@ -22,8 +22,7 @@ function orderList($scope, $http) {
 	$scope.toggleIngred = function(id){
 		console.log($("#meal"+id))
 		$("#meal"+id).toggle('slide', {
-	        duration: 1000,
-	        easing: 'easeOutBounce',
+	        duration: 200,
 	        direction: 'up'
 	    });
 		return false
@@ -43,13 +42,12 @@ function orderList($scope, $http) {
 
 {% block body %}
 	<div id="headerwrap" style="padding-top:0px">
-		<div class="container" ng-controller="orderList">
+		<div class="container" ng-controller="orderList" style="font-family: 'Lato', sans-serif;">
 			<div class="row">
 				<div class="col-lg-12">
 				<!--<i class="glyphicon glyphicon-circle-arrow-left white"></i>-->
 					<h1>Order</h1>
-					<hr style="height:10px;background-color: #EEE;border:none;">
-					<div class="container" ng-repeat="meal in items" ng-cloak style="background-color: #EEE">
+					<div class="container selectorListdiv" ng-repeat="meal in items" ng-cloak style="background-color: #FFF">
 						<div class="container">
 						<row>
 							<div class="col-lg-2">
@@ -66,24 +64,23 @@ function orderList($scope, $http) {
 							</div>-->
 						</row>
 						</div>
-						<a ng-click="toggleIngred($index)">Ingredients</a>
+						<input type="button" ng-click="toggleIngred($index)" class="btn btn-warning btn-md" value="Ingredients">
 						<div id="meal[[$index]]" style="display: none;">
 						<div class="container" ng-repeat="incredient in meal.ingredients" ng-cloak>
 							<row>
 								<div class="col-lg-2">
-									<div>$[[incredient.price]] [[$parent.$index]]</div>
+									<div>$[[incredient.price]]</div>
 								</div>
 								<div class="col-sm-3">
 									<div>[[incredient.name]]</div>
 								</div>
 								<div class="col-md-7">
-									<a href="#">Remove</a>
+									<input type="button" ng-click="toggleIngred($index)" class="btn btn-alert btn-sm" style='padding: 0px 8px;' value="Remove">
 								</div>
 							</row>
 							</div>
 							</div>
 					</div>
-					<hr style="height:10px;background-color: #EEE;border:none;">
 					<h2 class="white">Total: $[[totalPrice()]]</h2>
 					<form id="donate" action="https://bitpay.com/checkout" method="post" onsubmit="return bp.validateMobileCheckoutForm($('#donate'));">
 					  <input name="action" type="hidden" value="checkout">
