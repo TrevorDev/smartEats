@@ -2,10 +2,21 @@
 
 {% block includeScript %}
 <script>
-console.log("hit")
-
 function orderList($scope, $http) {
-	console.log("angular")
+	$scope.retrieveItems = function () {
+		try {
+			return $.map(getURLParameter("items").split(","), function(item, index){
+				return parseInt(item)
+			})
+		} catch (e) {
+			return []
+		}
+	}
+
+	$scope.items = $.map($scope.retrieveItems(), function(item, index){
+		return (item)
+	})
+	console.log($scope.items)
 }
 
 </script>
