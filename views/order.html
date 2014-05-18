@@ -13,11 +13,19 @@ function orderList($scope, $http) {
 			return []
 		}
 	}
+	$scope.meals = populateMealList()
 
 	$scope.items = $.map($scope.retrieveItems(), function(item, index){
-		return (item)
+		return $scope.meals[item].clone()
 	})
-	console.log($scope.items)
+
+	$scope.totalPrice = function(){
+		var total = 0;
+		for(var i = 0;i<this.items.length;i++){
+			total+= this.items[i].getPrice()
+		}
+		return parseInt(total*100)/100
+	}
 }
 
 </script>
@@ -31,21 +39,39 @@ function orderList($scope, $http) {
 				<!--<i class="glyphicon glyphicon-circle-arrow-left white"></i>-->
 					<h1>Order</h1>
 					<hr style="height:10px;background-color: #EEE;border:none;">
-					<div class="container">
+					<div class="container" ng-repeat="meal in items" ng-cloak style="background-color: #EEE">
+						<div class="container">
 						<row>
-							<div class="col-sm-3">
-								<img src="/public/custom/img/logo.png" style="height: 100px">
-							</div>
 							<div class="col-lg-2">
-								<div>Name</div>
+								<div>$[[meal.getPrice()]]</div>
 							</div>
-							<div class="col-md-7">
+							<div class="col-sm-3">
+								<img src="[[meal.image]]" style="height: 100px;border: solid 3px #333">
+							</div>
+							<div class="col-lg-7">
+								<div>[[meal.Title]]</div>
+							</div>
+							<!--<div class="col-md-7">
 								<div>This is the description</div>
-							</div>
+							</div>-->
 						</row>
+						</div>
+						<div class="container" ng-repeat="incredient in meal.ingredients" ng-cloak>
+							<row>
+								<div class="col-lg-2">
+									<div>$[[incredient.price]]</div>
+								</div>
+								<div class="col-sm-3">
+									<div>[[incredient.name]]</div>
+								</div>
+								<div class="col-md-7">
+									<a href="#">Remove</a>
+								</div>
+							</row>
+							</div>
 					</div>
 					<hr style="height:10px;background-color: #EEE;border:none;">
-					<h2 class="white">Total: $0.00</h2>
+					<h2 class="white">Total: $[[totalPrice()]]</h2>
 					<form id="donate" action="https://bitpay.com/checkout" method="post" onsubmit="return bp.validateMobileCheckoutForm($('#donate'));">
 					  <input name="action" type="hidden" value="checkout">
 					  <input name="orderID" type="hidden" placeholder="Email address (optional)" >
