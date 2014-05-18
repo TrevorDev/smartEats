@@ -5,13 +5,17 @@ function MealItem(id,Title, ingredients,image){
 	this.ingredients = ingredients;
 	this.image = image;
 }
-
+function ingredientItem(name,amount){
+	this.name = name;
+	this.amount = amount;
+}
 
 
 function populateMealList(){
 	var Meals=[];
 	
-	var Rosee = new mealItem(1,"Rosee Pasta", ["pasta", "pastaSause"], "http://someurl");
+	
+	var Tacos = new mealItem(1,"Lime Chicken Soft Tacos", [ new ingredientItem("",), ], "");
 	
 	Meals.push(Rosee);
 	
