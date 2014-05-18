@@ -3,7 +3,7 @@ $(function(){
 	console.log( "ready!" );
 	//=================declare page elements========================
 	var meals = populateMealList();	
-	var userChosenMeals=[1,2,3,5];
+	var userChosenMeals=[];
 	
 	//=============prototype functions==============================
 	//handle adding a meal
