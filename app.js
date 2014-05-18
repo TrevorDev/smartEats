@@ -35,6 +35,7 @@ app.use(router(app))
 app.get('/', defaultPageLoad('index'))
 app.get('/order', defaultPageLoad('order'))
 app.post('/invoice', invoice)
+app.get('/complete', defaultPageLoad('complete'))
 app.get('/public/*', serve('.'))
 
 
