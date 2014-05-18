@@ -25,8 +25,12 @@ $(function(){
 		if(found===0){
 		
 		}
+		else{
+			
+			
 		
-	
+		}
+			
 		console.log( "Meal Added!" );
   });
 

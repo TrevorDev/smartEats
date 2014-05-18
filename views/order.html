@@ -1,14 +1,31 @@
 {% extends 'layout.html' %}
 
 {% block includeScript %}
+<script src="/public/custom/js/MealItems.js"></script>
 <script>
-console.log("hit")
+function orderList($scope, $http) {
+	$scope.retrieveItems = function () {
+		try {
+			return $.map(getURLParameter("items").split(","), function(item, index){
+				return parseInt(item)
+			})
+		} catch (e) {
+			return []
+		}
+	}
+
+	$scope.items = $.map($scope.retrieveItems(), function(item, index){
+		return (item)
+	})
+	console.log($scope.items)
+}
+
 </script>
 {% endblock %}
 
 {% block body %}
 	<div id="headerwrap" style="padding-top:0px">
-		<div class="container">
+		<div class="container" ng-controller="orderList">
 			<div class="row">
 				<div class="col-lg-12">
 				<!--<i class="glyphicon glyphicon-circle-arrow-left white"></i>-->
